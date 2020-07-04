@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "json_api.scss"
+    ],
+    "names": [],
+    "file": "json_api.css"
+}

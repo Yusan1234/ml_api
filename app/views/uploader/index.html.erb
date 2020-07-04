@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <%= stylesheet_link_tag "uploader", :media => "all" %>
+  <%= javascript_include_tag 'uploader' %>
+</head>
+
+<header>
+  <h1>TBD</h1>
+</header>
+<body>
+  <ul class="grid">
+    <li class="img_01_show">
+      <figure class="grid__figure">
+        <img src="/assets/picasso.jpg" alt="">
+        <figcaption>Art Portraits</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/me.jpg" alt="">
+        <figcaption>Anime</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/pablo_picasso.jpg" alt="">
+        <figcaption>Your Future</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/katsushika.jpg" alt="">
+        <figcaption>TBD</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/picasso.jpg" alt="">
+        <figcaption>TBD</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/me.jpg" alt="">
+        <figcaption>TBD</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/katsushika.jpg" alt="">
+        <figcaption>TBD</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/me.jpg" alt="">
+        <figcaption>TBD</figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure class="grid__figure">
+        <img src="/assets/katsushika.jpg" alt="">
+        <figcaption>TBD</figcaption>
+      </figure>
+    </li>
+  </ul>
+<!-- modal -->
+<div class="modal-overlay">
+  <div class="modal">
+    
+    <a class="close-modal">
+      <svg viewBox="0 0 20 20">
+        <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+      </svg>
+    </a><!-- close modal -->
+
+    <div class="modal-content">
+      <ul class="grid">
+        <li class="img_01_show">
+          <figure class="grid__figure">
+            <img src="/assets/picasso.jpg" alt="">
+            <figcaption>Pre ArtPortrait</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="grid__figure">
+            <img src="/assets/katsushika.jpg" alt="">
+            <figcaption>Post ArtPortrait</figcaption>
+          </figure>
+        </li>
+      </ul>
+      <%= form_tag({controller: :request, action: :connection, method: :get, multipart: true}) do %>
+        <div class="uploadButton">
+            Choose your file
+            <%# <%= file_field :request, :img_01 %> 
+            <%= file_field :request, :img_01 %>
+            <input type="text" id="uv" class="uploadValue" disabled />
+        </div>
+        <div class="submitButton">
+            Submit
+            <%= submit_tag 'Send file' %>
+            <input type="text" id="uv" class="submitValue" disabled /><div class="clear"></div>
+        </div>
+      <% end %>
+
+    </div><!-- content -->
+
+  </div><!-- modal -->
+</div><!-- overlay -->
+</body>
