@@ -12,60 +12,14 @@
 </header>
 <body>
   <ul class="grid">
+  <% @Img.each do |img| %>
     <li class="img_01_show">
       <figure class="grid__figure">
-        <img src="/assets/picasso.jpg" alt="">
-        <figcaption>Art Portraits</figcaption>
+        <%= image_tag img.path %>
+        <figcaption><%= img.imgName %></figcaption>
       </figure>
     </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/me.jpg" alt="">
-        <figcaption>Anime</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/pablo_picasso.jpg" alt="">
-        <figcaption>Your Future</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/katsushika.jpg" alt="">
-        <figcaption>TBD</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/picasso.jpg" alt="">
-        <figcaption>TBD</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/me.jpg" alt="">
-        <figcaption>TBD</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/katsushika.jpg" alt="">
-        <figcaption>TBD</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/me.jpg" alt="">
-        <figcaption>TBD</figcaption>
-      </figure>
-    </li>
-    <li>
-      <figure class="grid__figure">
-        <img src="/assets/katsushika.jpg" alt="">
-        <figcaption>TBD</figcaption>
-      </figure>
-    </li>
+    <% end %>
   </ul>
 <!-- modal -->
 <div class="modal-overlay">
@@ -91,8 +45,9 @@
             <figcaption>Post ArtPortrait</figcaption>
           </figure>
         </li>
+
       </ul>
-      <%= form_tag({controller: :request, action: :connection, method: :get, multipart: true}) do %>
+      <%= form_tag({controller: :uploader, action: :create , method: :post, multipart: true}) do %>
         <div class="uploadButton">
             Choose your file
             <%# <%= file_field :request, :img_01 %> 
@@ -101,7 +56,7 @@
         </div>
         <div class="submitButton">
             Submit
-            <%= submit_tag 'Send file' %>
+            <%= submit_tag 'Send file', data:{confirm: 'Are you sure ?', disable_with: 'Saving...'} %>
             <input type="text" id="uv" class="submitValue" disabled /><div class="clear"></div>
         </div>
       <% end %>
